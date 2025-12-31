@@ -1,20 +1,3 @@
-<?php
-    session_start();
-    //print_r($_SESSION);
-
-    if((!isset($_SESSION['email']) == true ) and (!isset($_SESSION['senha']) == true )){
-
-        unset($_SESSION['email']);
-        unset($_SESSION['senha']);
-        header('Location: ../site/login.php');
-    }
-    $logado = $_SESSION['matricula'];
-?>
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -28,7 +11,7 @@
     crossorigin="anonymous" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="sistema.css"/>
+  <link rel="stylesheet" href="Cadastro.css"/>
   <link rel="stylesheet" href="mobile-style.css">
 </head>
 
@@ -46,10 +29,10 @@
           
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="Index.php">Pagina Inicial</a>
+              <a class="nav-link" href="Index.html">Pagina Inicial</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="navegar.php">Navegar</a>
+              <a class="nav-link" href="navegar.html">navegar</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contato</a>
@@ -66,20 +49,16 @@
 
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="Cadastro.php">Cadastre-se</a>
+              <a class="nav-link" href="Cadastro.html">Cadastre-se</a>
             </li>
             <li>
-              <a class="nav-link" href="login.php">Login</a>
+              <a class="nav-link" href="login.html">Login</a>
             </li>
           </ul>  
 
         </div>
       </nav><!-- Fim do Menu -->
     </div>
-
-    
-
-   
 
   </header> <!-- Fim do Cabeçalho -->
 
@@ -91,33 +70,86 @@
       <div class="box">
         <div class="form-box">
 
-          <form action="../SGBD/upload.php" method="post" enctype="multipart/form-data">
+          <h2>Cadastrar</h2>
 
+          <form action="Cadastro.php" method="POST">
 
-
-            <h3>Olá, discente. Para enviar seu PCCT, clique abaixo:</h3>
-
-            
-            
             <div class="input-group">
-              <label for="nome_arquivo"> Nome do PCCT</label>
-              <input type="text" name="nome_arquivo" placeholder="Digite aqui o nome" required>
+                <label for="nome"> Nome Completo</label>
+                <input type="text" name="nome" placeholder="Digite o seu nome completo" required>
             </div>
 
-            
-            <div class="input-group-pdf">
-              <label for="pdfFile">Escolha um arquivo PDF:</label>
+            <div class="input-group">
+                <label for="email">E-mail Institucional</label>
+                <input type="email" name="email" placeholder="Digite o seu email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="matricula">Matricula</label>
+                <input type="text" name="matricula" placeholder="Digite o sua matricula" required>
+            </div>
+
+            <div class="input-box">
               
-              <input type="file" name="pdfFile" id="pdfFile" accept=".pdf">
+                <p>Sexo:</p>
+                
+                <input type="radio" id="feminino" name="genero" value="feminino" required>
+                <label for="feminino">Feminino</label>
+                
+                <input type="radio" id="masculino" name="genero" value="masculino" required>
+                <label for="masculino">Masculino</label>
+                <input type="radio" id="outro" name="genero" value="outro" required>
+                <label for="outro">Outro</label>
+              
             </div>
-          
-            
 
-            <input type="submit" value="Enviar PDF">
-          </form> 
-          
+            <div class="input-box">
+              
+              <p>Curso:</p>
+              
+              <input type="radio" id="adm" name="curso" value="Administracao" required>
+              <label for="adm">Administração</label>
+              
+              <input type="radio" id="agro" name="curso" value="Agropecuaria" required>
+              <label for="agro">Agropecuaria</label>
+
+              <input type="radio" id="inf" name="curso" value="Informatica" required>
+              <label for="inf">Informatica</label>
+        
+            </div>
+
+            <div class="input-box">
+              
+              <p>Turma:</p>
+              
+              <input type="radio" id="adm31" name="turma" value="ADM 31" required>
+              <label for="adm31">ADM 31</label>
+              
+              <input type="radio" id="agro31" name="turma" value="AGRO 31" required>
+              <label for="agro31">AGRO 31</label>
+              <input type="radio" id="inf31" name="turma" value="INF 31" required>
+              <label for="inf31">INF 31</label>
+            
+            </div>
+            
+            <div class="input-group w50">
+              <label for="senha">Senha</label>
+              <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+            </div>
+
+            <div class="input-group w50">
+              <label for="confirmarsenha">Confirmar Senha</label>
+              <input type="password" id="confirmarsenha" name="confirmarsenha" placeholder="Confirme a senha" required>
+            </div>
+
+            <div class="input-group">
+              <input class="enviar-cadastro" type="submit" name="submit" value="Cadastrar">
+            </div>
+
+          </form>
         </div>
-      </div> 
+    </div>
+      
     </section> <!-- Fim do conteudo Secundario -->
 
   </main> <!-- Fim do corpo do site -->

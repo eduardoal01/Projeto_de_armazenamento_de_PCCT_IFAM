@@ -1,38 +1,3 @@
-<!-- <?php
-
-
-if(isset($_POST['submit'])){
-  //print_r('Nome: ' . $_POST['nome']);
-  //print_r('<br>');
-  //print_r('Matricula: ' . $_POST['matricula']);
-  //print_r('<br>');
-  //print_r('Email: ' . $_POST['email']);
-  //print_r('<br>');
-  //print_r('Curso: ' . $_POST['curso']);
-  //print_r('<br>');
-  //print_r('Senha: ' . $_POST['senha'])
-  //print_r('genero: ' . $_POST['genero']);
-  //print_r('turma: ' . $_POST['turma']);
-
-  include_once('../SGBD/config.php');
-
-  $nome = $_POST['nome'];
-  $matricula = $_POST['matricula'];
-  $email = $_POST['email'];
-  $curso = $_POST['curso'];
-  $turma = $_POST['turma'];
-  $genero = $_POST['genero'];
-  $senha = md5($_POST['senha']);
-  
-  
-
-  $result = mysqli_query($conexao, "INSERT INTO cadastro(nome,matricula,email,curso,turma,genero,senha) VALUE('$nome','$matricula','$email','$curso','$turma','$genero','$senha')");
-
-  header('Location: ../site/login.php');
-}
-
-?>-->
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -46,7 +11,7 @@ if(isset($_POST['submit'])){
     crossorigin="anonymous" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="Cadastro.css"/>
+  <link rel="stylesheet" href="login.css"/>
   <link rel="stylesheet" href="mobile-style.css">
 </head>
 
@@ -54,7 +19,7 @@ if(isset($_POST['submit'])){
   <header> <!-- Inicio do Cabecalho -->
     <div class="container-fluid p-0">
       <nav class="navbar navbar-expand-lg"> <!-- Inicio do Menu-->
-        <a class="navbar-brand" href="Index.php">
+        <a class="navbar-brand" href="Index.html">
           <i class="fas fa-book-reader fa-2x mx-3"></i>Repositorio de Pcct</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
           aria-label="Toggle navigation">
@@ -64,10 +29,10 @@ if(isset($_POST['submit'])){
           
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="Index.php">Pagina Inicial</a>
+              <a class="nav-link" href="Index.html">Pagina Inicial</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="navegar.php">navegar</a>
+              <a class="nav-link" href="navegar.html">Navegar</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contato</a>
@@ -84,10 +49,10 @@ if(isset($_POST['submit'])){
 
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="Cadastro.php">Cadastre-se</a>
+              <a class="nav-link" href="Cadastro.html">Cadastre-se</a>
             </li>
             <li>
-              <a class="nav-link" href="login.php">Login</a>
+              <a class="nav-link" href="login.html">Login</a>
             </li>
           </ul>  
 
@@ -97,98 +62,38 @@ if(isset($_POST['submit'])){
 
   </header> <!-- Fim do Cabeçalho -->
 
-
   <main> <!-- Inicio do Corpo do site -->
 
     <section class="section-1"> <!-- Inicio do conteudo Primario -->
-
+      
       <div class="box">
         <div class="form-box">
 
-          <h2>Cadastrar</h2>
+          <h2>Login</h2>
 
-          <form action="Cadastro.php" method="POST">
-
-            <div class="input-group">
-                <label for="nome"> Nome Completo</label>
-                <input type="text" name="nome" placeholder="Digite o seu nome completo" required>
-            </div>
+          <form action="../SGBD/testLogin.php" method="POST">
 
             <div class="input-group">
-                <label for="email">E-mail Institucional</label>
-                <input type="email" name="email" placeholder="Digite o seu email" required>
+              <label for="matricula">Matricula</label>
+              <input type="text" name="matricula" placeholder="Digite o sua matricula" required>
             </div>
 
             <div class="input-group">
-                <label for="matricula">Matricula</label>
-                <input type="text" name="matricula" placeholder="Digite o sua matricula" required>
-            </div>
-
-            <div class="input-box">
-              
-                <p>Sexo:</p>
-                
-                <input type="radio" id="feminino" name="genero" value="feminino" required>
-                <label for="feminino">Feminino</label>
-                
-                <input type="radio" id="masculino" name="genero" value="masculino" required>
-                <label for="masculino">Masculino</label>
-                <input type="radio" id="outro" name="genero" value="outro" required>
-                <label for="outro">Outro</label>
-              
-            </div>
-
-            <div class="input-box">
-              
-              <p>Curso:</p>
-              
-              <input type="radio" id="adm" name="curso" value="Administracao" required>
-              <label for="adm">Administração</label>
-              
-              <input type="radio" id="agro" name="curso" value="Agropecuaria" required>
-              <label for="agro">Agropecuaria</label>
-
-              <input type="radio" id="inf" name="curso" value="Informatica" required>
-              <label for="inf">Informatica</label>
-        
-            </div>
-
-            <div class="input-box">
-              
-              <p>Turma:</p>
-              
-              <input type="radio" id="adm31" name="turma" value="ADM 31" required>
-              <label for="adm31">ADM 31</label>
-              
-              <input type="radio" id="agro31" name="turma" value="AGRO 31" required>
-              <label for="agro31">AGRO 31</label>
-              <input type="radio" id="inf31" name="turma" value="INF 31" required>
-              <label for="inf31">INF 31</label>
-            
-            </div>
-            
-            <div class="input-group w50">
               <label for="senha">Senha</label>
               <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
             </div>
 
-            <div class="input-group w50">
-              <label for="confirmarsenha">Confirmar Senha</label>
-              <input type="password" id="confirmarsenha" name="confirmarsenha" placeholder="Confirme a senha" required>
-            </div>
-
             <div class="input-group">
-              <input class="enviar-cadastro" type="submit" name="submit" value="Cadastrar">
+              <input class="enviar-cadastro" type="submit" name="submit" value="Login">
             </div>
 
           </form>
         </div>
-    </div>
+      </div>
       
     </section> <!-- Fim do conteudo Secundario -->
 
   </main> <!-- Fim do corpo do site -->
-
 
   <footer> <!-- Inicio do Rodape-->
     <div class="container-fluid p-0">
