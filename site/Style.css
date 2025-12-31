@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet");
+* {
+  box-sizing: border-box;
+}
+
+header,
+section {
+  overflow-x: hidden;
+}
+
+:root {
+  --Sniglet-font: "Sniglet", cursive;
+  --Rubik: "Rubik", cursive;
+  --Patua: "Patua One", cursive;
+  --Lobster: "lobster", cursive;
+  --light-black: #2e2c2caf;
+  --bggradient: linear-gradient(to bottom, #276911, #30a34d);
+  
+}
+
+header a {
+  font-family: var(--Sniglet-font);
+  font-size: 0.9em;
+  color: whitesmoke;
+}
+
+
+
+header .nav-item:last-child {
+  padding-right: 10.5em;
+}
+
+header .nav-item {
+  padding: 0.10em;
+  
+}
+
+header .navbar-brand {
+  padding-left: 8rem;
+}
+
+header .nav-link:hover {
+  color: black;
+}
+
+header {
+  background: var(--bggradient);
+}
+
+/********** Conteudo Primario **************/
+.section-1{
+  background-color: #96d55ffa;
+}
+
+
+.section-1 .container .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-1 .row .col-md-7 {
+  padding: 22vmin 1vmin;
+  padding-bottom: 35vmin;
+}
+
+.section-1 .container .col-md-7 {
+  font-family: "Rubik", sans-serif;
+}
+
+.section-1 .container .col-md-7 h2 {
+  padding: 1vmin;
+  letter-spacing: 4px;
+}
+
+.section-1 .container .col-md-7 h1 {
+  font-size: 8.5vmin;
+  font-weight: bold;
+  padding: 0.1em 0em;
+}
+
+.section-1 .container .col-md-7 p {
+  padding: 1vmin 5vmin;
+}
+ 
+/********** Conteudo Rodape **************/
+
+
+footer {
+  background: rgba(0, 0, 0, 0.815);
+  overflow-x: hidden;
+  padding: 5vmin 18vmin;
+}
+
+footer p > span {
+  color: #ff512f;
+}
+
+footer input {
+  border: none !important;
+}
+
+footer input::placeholder {
+  color: white !important;
+}
+
+footer .input-group .input-group-text {
+  background: var(--bggradient);
+  border: none;
+}
+
+footer .column i {
+  color: #dd2476;
+}
+
+footer .column i + i {
+  padding: 0 0.5em;
+}
+
+
